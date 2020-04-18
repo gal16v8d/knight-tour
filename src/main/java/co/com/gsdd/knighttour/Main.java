@@ -81,10 +81,10 @@ public class Main extends JFrame {
 		JMenu menuTour = new JMenu("Tour");
 		JMenu extraMenu = new JMenu("Extras");
 		JMenu menuOptions = new JMenu("Options");
-		JMenuItem menuExit = initMenuItem("Exit", "/icons/iconout.png", 'S', KeyEvent.VK_S, InputEvent.CTRL_MASK);
-		JMenuItem menuInfo = initMenuItem("Info", "/icons/iconcred.png", 'C', KeyEvent.VK_C, InputEvent.CTRL_MASK);
+		JMenuItem menuExit = initMenuItem("Exit", "/icons/iconout.png", 'S', KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK);
+		JMenuItem menuInfo = initMenuItem("Info", "/icons/iconcred.png", 'C', KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK);
 		JMenuItem menuKnight = initMenuItem("Knight Tour", "/icons/b_knight.gif", 'K', KeyEvent.VK_K,
-				InputEvent.CTRL_MASK);
+				InputEvent.CTRL_DOWN_MASK);
 		extraMenu.add(menuInfo);
 		extraMenu.addSeparator();
 		extraMenu.add(menuExit);
