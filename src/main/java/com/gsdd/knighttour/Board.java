@@ -1,4 +1,4 @@
-package co.com.gsdd.knighttour;
+package com.gsdd.knighttour;
 
 import java.awt.Color;
 import java.awt.Font;
