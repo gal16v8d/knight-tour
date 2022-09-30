@@ -1,8 +1,5 @@
-package co.com.gsdd.knighttour;
+package com.gsdd.knighttour;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -20,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -83,10 +81,10 @@ public class Main extends JFrame {
 		JMenu menuTour = new JMenu("Tour");
 		JMenu extraMenu = new JMenu("Extras");
 		JMenu menuOptions = new JMenu("Options");
-		JMenuItem menuExit = initMenuItem("Exit", "/icons/iconout.png", 'S', KeyEvent.VK_S, InputEvent.CTRL_MASK);
-		JMenuItem menuInfo = initMenuItem("Info", "/icons/iconcred.png", 'C', KeyEvent.VK_C, InputEvent.CTRL_MASK);
+		JMenuItem menuExit = initMenuItem("Exit", "/icons/iconout.png", 'S', KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK);
+		JMenuItem menuInfo = initMenuItem("Info", "/icons/iconcred.png", 'C', KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK);
 		JMenuItem menuKnight = initMenuItem("Knight Tour", "/icons/b_knight.gif", 'K', KeyEvent.VK_K,
-				InputEvent.CTRL_MASK);
+				InputEvent.CTRL_DOWN_MASK);
 		extraMenu.add(menuInfo);
 		extraMenu.addSeparator();
 		extraMenu.add(menuExit);
@@ -97,24 +95,9 @@ public class Main extends JFrame {
 		this.init(BACKGROUND_PNG);
 		this.setJMenuBar(menuBar);
 		menuTour.setToolTipText("Select a tour");
-		menuExit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				exitOption();
-			}
-		});
-		menuInfo.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				infoOption();
-			}
-		});
-		menuKnight.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				initTourPanel();
-			}
-		});
+		menuExit.addActionListener(evt -> exitOption());
+		menuInfo.addActionListener(evt -> infoOption());
+		menuKnight.addActionListener(evt -> initTourPanel());
 	}
 
 	private ImageIcon safeLoadOfIcon(String resource) {
@@ -226,30 +209,14 @@ public class Main extends JFrame {
 		solveButton = new JButton("Solve");
 		solveButton.setBounds(420, 70, 100, 25);
 		solveButton.setEnabled(false);
-		solveButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				solveOption();
-			}
-		});
+		solveButton.addActionListener(evt -> solveOption());
 		backButton = new JButton("Back");
 		backButton.setBounds(420, 100, 100, 25);
-		backButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				backOption();
-			}
-		});
+		backButton.addActionListener(evt -> backOption());
 		confirmButton = new JButton("Confirm");
 		confirmButton.setBounds(420, 130, 100, 25);
 		confirmButton.setEnabled(true);
-		confirmButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				confirmOption(confirmButton);
-			}
-		});
-
+		confirmButton.addActionListener(evt -> confirmOption(confirmButton));
 		xInput.setEditable(true);
 		yInput.setEditable(true);
 		getContentPane().add(xInputLabel);
@@ -263,15 +230,12 @@ public class Main extends JFrame {
 	}
 
 	public static void main(String[] args) throws IOException {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				Main main = new Main("Chess Tours");
-				main.setSize(620, 500);
-				main.setVisible(true);
-				main.setResizable(false);
-				main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			}
+		SwingUtilities.invokeLater(() -> {
+			Main main = new Main("Chess Tours");
+			main.setSize(620, 500);
+			main.setVisible(true);
+			main.setResizable(false);
+			main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		});
 	}
 
