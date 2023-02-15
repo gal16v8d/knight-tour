@@ -2,10 +2,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.gsdd</groupId>
+		<artifactId>gsdd-parent</artifactId>
+		<version>1.0.1</version>
+	</parent>
 
-	<groupId>com.gsdd</groupId>
 	<artifactId>knight-tour</artifactId>
-	<version>3.0.1</version>
+	<version>3.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>knight-tour</name>
@@ -13,51 +18,31 @@
 		<name>GSDD</name>
 	</organization>
 
-	<properties>
-		<project.encoding>UTF-8</project.encoding>
-		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
-		<project.build.targetEncoding>${project.encoding}</project.build.targetEncoding>
-		<project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
-		<java.version>17</java.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<mvn.compiler.plugin.version>3.10.1</mvn.compiler.plugin.version>
-		
-		<lombok.version>1.18.24</lombok.version>
-		<slf4j.version>1.7.36</slf4j.version>
-		<log4j.version>2.19.0</log4j.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>${log4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>${log4j.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -66,7 +51,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${mvn.compiler.plugin.version}</version>
 			</plugin>
 		</plugins>
 	</build>
