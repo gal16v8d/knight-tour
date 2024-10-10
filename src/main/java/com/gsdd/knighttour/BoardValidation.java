@@ -1,9 +1,8 @@
 package com.gsdd.knighttour;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.experimental.UtilityClass;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@UtilityClass
 public final class BoardValidation {
 
 	public static boolean isLegalSquare(int xPos, int yPos) {

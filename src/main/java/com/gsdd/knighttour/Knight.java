@@ -1,6 +1,7 @@
 package com.gsdd.knighttour;
 
 import java.awt.BorderLayout;
+import java.io.Serial;
 import java.util.Arrays;
 
 import javax.swing.JInternalFrame;
@@ -10,16 +11,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Knight extends JInternalFrame implements Runnable {
 
+	@Serial
 	private static final long serialVersionUID = -9190855903626590564L;
 	// 8 ways
 	public static final int[] OFFSET_X = { 1, 1, 2, 2, -1, -1, -2, -2 };
 	public static final int[] OFFSET_Y = { 2, -2, 1, -1, 2, -2, 1, -1 };
 	public static final int DIMENTION = 8;
 	// start position
-	private int posx;
-	private int posy;
-	private Board display;
-	private int[][] chessBoard;
+	private final int posx;
+	private final int posy;
+	private final Board display;
+	private final int[][] chessBoard;
 
 	public Knight(int x, int y) {
 		this.posx = x;

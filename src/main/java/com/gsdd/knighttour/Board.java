@@ -1,18 +1,19 @@
 package com.gsdd.knighttour;
 
+import lombok.RequiredArgsConstructor;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.io.Serial;
 import javax.swing.JPanel;
 
+@RequiredArgsConstructor
 public class Board extends JPanel {
 
+	@Serial
 	private static final long serialVersionUID = 8441500980328696014L;
-	private int[][] chessBoard;
-
-	public Board(int[][] chessBoard) {
-		this.chessBoard = chessBoard;
-	}
+	private final int[][] chessBoard;
 
 	public void move() {
 		repaint();

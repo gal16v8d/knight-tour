@@ -6,11 +6,11 @@
 	<parent>
 		<groupId>com.gsdd</groupId>
 		<artifactId>gsdd-parent</artifactId>
-		<version>1.0.3</version>
+		<version>1.0.4</version>
 	</parent>
 
 	<artifactId>knight-tour</artifactId>
-	<version>3.1.0</version>
+	<version>3.1.1</version>
 	<packaging>jar</packaging>
 
 	<name>knight-tour</name>
